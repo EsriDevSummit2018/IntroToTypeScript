@@ -1,0 +1,28 @@
+{
+  "name": "introduction-to-typescript",
+  "version": "1.0.0",
+  "description": "Intoduction to TypeScript Course Files",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "dev": "lite-server",
+    "verify": "tsc --version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsriDevSummit2018/IntroToTypeScript.git"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Jeff McBride",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EsriDevSummit2018/IntroToTypeScript/issues"
+  },
+  "homepage": "https://github.com/EsriDevSummit2018/IntroToTypeScript#readme",
+  "devDependencies": {
+    "lite-server": "^2.3.0",
+    "typescript": "^2.7.1"
+  }
+}
