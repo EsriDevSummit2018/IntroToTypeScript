@@ -19,7 +19,7 @@
  */
 console.log("Module 04 - TypeScript Variables and Scope complete.js loaded...");
 
-
+namespace Complete {
 console.log("");
 console.log("****************************************************************");
 console.log("Topic - TypeScript Comments");
@@ -43,11 +43,10 @@ console.log("Topic - var, let, const keywords");
 console.log("****************************************************************");
 
 var globalVar1 = "globalVar1";
+console.log("globalVar1 is " + globalVar1);                                  // globalVar1
 
 // JavaScript is ok with this, TypeScript doesn't like this
-globalVar2 = "globalVar2";                                                   // [ts] Cannot find name 'globalVar2'. Did you mean globalVar1?                                            
-console.log("globalVar1 is " + globalVar1);                                  // globalVar1
-console.log("globalVar2 is " + globalVar2);                                  // globalVar2
+//globalVar2 = "globalVar2";                                                   // [ts] Cannot find name 'globalVar2'. Did you mean globalVar1?                                            
 
 var globalVar1 = "new globalVar1";                                           // JavaScript allows redecaring variables with var keyword
 console.log("globalVar1 is " + globalVar1);                                  // new globalVar1
@@ -74,18 +73,12 @@ function globalFunction1() {
     let localLet1 = "localLet1";
     console.log("localLet1 in globalFunction() is " + localLet1);            // localLet1
     
-    mysteryVar = "mysteryVar";                                               // TypeScript still doesn't like this
-    console.log("mysteryVar in globalFunction() is " + mysteryVar);          // mysteryVar
+    //mysteryVar = "mysteryVar";                                               // TypeScript still doesn't like this
 }
 
 globalFunction1();
 //console.log("localVar1 is " + localVar1);                                    // Uncaught ReferenceError: localVar1 is not defined
 //console.log("localLet1 is " + localLet1);                                    // Uncaught ReferenceError: localLet1 is not defined
-console.log("mysteryVar is " + mysteryVar);                                  // mysteryVar
-
-// Prove they are globals
-//console.log("window.mysteryVar is " + window.mysteryVar);                    // In a browser mysteryVar or in node.js window is not defined
-//console.log("global.mysteryVar is " + global.mysteryVar);                    // In a browser global is not defined or in node.js mysteryVar
 
 
 console.log("");
@@ -212,7 +205,7 @@ console.log("****************************************************************");
 console.log("Topic - Template Literals");
 console.log("****************************************************************");
 
-let templateLiteralName = "George Jetson";
+let templateLiteralName = "Glenn Quagmire";
 console.log("Hello " + templateLiteralName + "!");                           // Concatenation
 console.log(`Hello ${templateLiteralName}!`);                                // Template Literal
 
@@ -243,7 +236,9 @@ let assertString2 = assertAny1 as string;
 
 // To demonstrate, show intellisense for each of the assert variables
 // Mostly used with objects and polymorphic behavior
-console.log("To demonstrate, show intellisense for each assert variable");
+console.log("typeof assertAny1 is " + typeof assertAny1);
+console.log("typeof assertString1 is " + typeof assertString1);
+console.log("typeof assertString2 is " + typeof assertString2);
 
 
 console.log("");
@@ -256,7 +251,7 @@ valType++;
 console.log("valType is " + valType);
 
 let refType: Object = valType;                                               // Boxing
-refType++;
+//refType++;                                                                   // An arithmetic operand must be of type 'any', 'number', or an enum type
 console.log("refType is " + refType);
 
 let newValType: number = Number(refType.toString());                         // Unboxing
@@ -276,3 +271,5 @@ function genericsFunction1<T>(arg: T): T {
 genericsFunction1<boolean>(true);
 genericsFunction1<number>(5);
 genericsFunction1<string>("string");
+//genericsFunction1<number>("five");                                             // Argument of type '"five"' is not assignable to parameter of type 'number'
+}

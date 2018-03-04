@@ -11,6 +11,7 @@
 console.log("Module 06 - TypeScript Arrays and Collection Types complete.js loaded...");
 
 
+namespace Complete {
 console.log("");
 console.log("****************************************************************");
 console.log("Topic - Array Types");
@@ -46,8 +47,7 @@ console.log("****************************************************************");
 
 let tuple1: [string, number] = ["zero", 0];
 console.log(`tuple1 is ${tuple1}`);
-tuple1 = [1, "one"];                                                      // [ts] Type '[number, string]' is not assignable to type '[string, number]'
-console.log(`tuple1 is ${tuple1}`);
+//tuple1 = [1, "one"];                                                      // [ts] Type '[number, string]' is not assignable to type '[string, number]'
 
 let tuple2: [boolean, string, number] = [true, "two", 2];
 console.log(`tuple2 is ${tuple2}`);
@@ -100,3 +100,4 @@ function genericsFunction3<T>(arg: Array<T>): Array<T> {
 genericsFunction2<boolean>([true, false]);
 genericsFunction2<number>([1, 2, 3, 4, 5]);
 genericsFunction3<string>(["string1", "string2", "string3"]);
+}

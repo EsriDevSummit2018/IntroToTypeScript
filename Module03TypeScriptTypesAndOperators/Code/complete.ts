@@ -10,7 +10,7 @@
  */
 console.log("Module 03 - TypeScript Types and Operators complete.js loaded...");
 
-
+namespace Complete {
 console.log("");
 console.log("****************************************************************");
 console.log("Topic - Strong Typing with TypeScript");
@@ -35,8 +35,8 @@ console.log('typeof Number( "42" ) is ' + typeof Number( "42" )); 	        // Re
 
 // Implicit Coercion - When JavaScript automatically does conversion
 // Note: The difference between == and === is strict equals does not allow conversion
-console.log('"99.99" == 99.99 is ' + ("99.99" == 99.99)); 	 	            // Returns true, loosely equals
-console.log('"99.99" === 99.99 is ' + ("99.99" === 99.99)); 	 	        // Returns false, strict equals
+// console.log('"99.99" == 99.99 is ' + ("99.99" == 99.99)); 	 	           // Returns true, loosely equals
+// console.log('"99.99" === 99.99 is ' + ("99.99" === 99.99));                 // Returns false, strict equals
 
 
 console.log("");
@@ -71,7 +71,7 @@ console.log("****************************************************************");
 
 var inferredString = "string";
 var inferredNumber = 5;
-inferredString = inferredNumber;                                              // Type 'number' is not assignable to type 'string'
+//inferredString = inferredNumber;                                              // Type 'number' is not assignable to type 'string'
 console.log('typeof inferredString is ' + typeof inferredString);
 console.log('typeof inferredNumber is ' + typeof inferredNumber);
 
@@ -83,7 +83,7 @@ console.log("****************************************************************");
 
 type arrayOfNames = Array<{ firstName: string, lastName: string }>;
 var people: arrayOfNames;
-var students: arrayOfNames = [{ firstName: "Fred", lastName: "Flintstone" }];
+var students: arrayOfNames = [{ firstName: "Peter", lastName: "Griffin" }];
 console.log('typeof people is ' + typeof people);
 console.log('typeof students is ' + typeof students);
 
@@ -94,14 +94,12 @@ console.log("Topic - Type Shapes and Compatibility");
 console.log("****************************************************************");
 
 type nameType = { firstName: string, lastName: string };
-var name1: nameType = { lastName: "Flintstone", firstName: "Fred" };         // ok 
-var name2: nameType = { firstName: "Barney", lastName: "Rubble", age: 25 };  // not ok because different types
-var name3: nameType = { age: 25 };                                           // not ok because different types
+var name1: nameType = { lastName: "Peter", firstName: "Griffin" };         // ok 
 
-var name4 = { firstName: "Barney", lastName: "Rubble", age: 25 };
-name1 = name4;                                                               // ok now though
-var name5 = { age: 25 };  
-name1 = name5;                                                               // still not ok
+var name2 = { firstName: "Lois", lastName: "Griffin", age: 43 };
+name1 = name2;                                                               // ok, duck typing
+var name3 = { age: 25 };  
+//name1 = name3;                                                               // not ok because different types
 console.log(name1);
 
 
@@ -111,6 +109,7 @@ console.log("Topic - Duplicate Identifiers");
 console.log("****************************************************************");
 
 //type nameType = { firstName: string, lastName: string };                     // Duplicate Identifier from above
-var nameType = { firstName: "Fred", lastName: "Flintstone" };
+var nameType = { firstName: "Peter", lastName: "Griffin" };
 var name1: nameType = nameType;                                              // not intuitive, but legal.  Note JS emitted
 console.log(name1);
+}

@@ -14,6 +14,7 @@
 console.log("Module 07 - TypeScript Functions complete.js loaded...");
 
 
+namespace Complete {
 console.log("");
 console.log("****************************************************************");
 console.log("Topic - function Declarations");
@@ -48,13 +49,6 @@ let functionExpression1 = function(param1: number, param2: number) : number {
     return param1 + param2;
 }
 console.log(`functionExpression1(1, 2) is ${functionExpression1(1, 2)}`);
-
-// Function expression with type annotation, the functionExpression1 above infers its type
-let functionExpression2: (x: number, y: number) => number = 
-    function(param1: number, param2: number) : number {
-        return param1 + param2;
-    }
-console.log(`functionExpression2(1, 2) is ${functionExpression2(1, 2)}`);
 
 
 console.log("");
@@ -114,11 +108,11 @@ callBackCallerFunction1(() => "call me");
 
 function callBackCallerFunction2(callBackFunction: (string) => string) {
     let someData = " maybe";
-    console.log(`callbackFunction() returned ${callBackFunction(someData)}`);
+    console.log(`callbackFunction(someData) returned ${callBackFunction(someData)}`);
 }
 callBackCallerFunction2(function(data) { return "call me" + data});
 callBackCallerFunction2((data) => "call me" + data);
-callBackCallerFunction2(function() { return "call me"});                     // Works because JavaScript parameters are optional
+callBackCallerFunction2(function() { return "call me"});                     // Works because JavaScript parameters are optional, and this call happens at run-time
 
 
 console.log("");
@@ -129,7 +123,7 @@ console.log("****************************************************************");
 function voidFunction1(param1: string, param2: string): void {
     console.log(`voidFunction1 received param1 = ${param1} and param2 = ${param2}`);
 //    return true;                                                             // [ts] Type 'true' not assignable to type 'void'
-    return null;
+//    return null;
     return undefined;
 }
 voidFunction1("Hello", "World");
@@ -140,7 +134,7 @@ console.log("****************************************************************");
 console.log("Topic - never Types");
 console.log("****************************************************************");
 
-function neverFunction1(param1: string, param2: string): never {               // [ts] A function returning 'never' cannot have a reachable end point
+/*function neverFunction1(param1: string, param2: string): never {               // [ts] A function returning 'never' cannot have a reachable end point
     console.log(`neverFunction1 received param1 = ${param1} and param2 = ${param2}`);
 //    return true;                                                             // [ts] Type 'true' not assignable to type 'never'
 //    return null;                                                             // [ts] Type 'null' not assignable to type 'never'
@@ -148,9 +142,9 @@ function neverFunction1(param1: string, param2: string): never {               /
 
     // Exception to never allow function to finish
     throw "Function never gets to end of code block";
-    // Could also use an infinite loop to acheive this
+    // Could also use an infinite loop to achieve this
 }
-neverFunction1("Never", "Mind");
+neverFunction1("Never", "Mind");*/
 
 
 console.log("");
@@ -160,7 +154,7 @@ console.log("****************************************************************");
 
 function functionOverloads1(param1: string, param2: string): string;
 function functionOverloads1(param1: number, param2: number): number;
-// This final signature is not callable, just a pattern for previous overload signatures
+// The actual function with code below is not callable, just a pattern for previous overload signatures
 function functionOverloads1(param1: any, param2: any): any {
         return param1 + param2;
 }
@@ -168,5 +162,4 @@ console.log(`functionOverloads1("1", "2") is ${functionOverloads1("1", "2")}`);
 console.log(`functionOverloads1(1, 2) is ${functionOverloads1(1, 2)}`);
 //console.log(`functionOverloads1("1", 2) is ${functionOverloads1("1", 2)}`);             // [ts] Argument of type "1" is not assignable to parameter of type 'number'
 //console.log(`functionOverloads1(true, false) is ${functionOverloads1(true, false)}`);   // [ts] Argument of type "true" is not assignable to parameter of type 'number'
-
-
+}

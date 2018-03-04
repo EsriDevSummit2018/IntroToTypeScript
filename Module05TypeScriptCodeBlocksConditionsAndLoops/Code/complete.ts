@@ -7,6 +7,7 @@
 console.log("Module 05 - TypeScript Code Blocks, Conditions, and Loops complete.js loaded...");
 
 
+namespace Complete {
 console.log("");
 console.log("****************************************************************");
 console.log("Topic - Code Blocks");
@@ -32,4 +33,6 @@ console.log("****************************************************************");
 let numbers: number[] = [1, 3, 5, 7, 11];
 for (const num of numbers) {
     console.log(num);
+}
+// Change target back to es6
 }
